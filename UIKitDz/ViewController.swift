@@ -11,7 +11,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        // MARK: создание кнопки начать
+        // MARK: - Create Start Button
 
         buttonStart = UIButton(type: .system)
         buttonStart.setTitle("Начать", for: .normal)
@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         view.addSubview(buttonStart)
     }
 
-    // MARK: отработка кнопка "Начать"
+    // MARK: - Handle Start Button Tap
 
     @objc func startButtonTap() {
         let buttonAlert = UIAlertController(title: "Введите слово", message: nil, preferredStyle: .alert)
@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         present(buttonAlert, animated: true, completion: nil)
     }
 
-    // MARK: вывод результата
+    // MARK: - Display Result
 
     func showResult(_ word: String) {
         let topLabel = UILabel(frame: CGRect(x: 50, y: 106, width: 275, height: 57))

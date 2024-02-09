@@ -18,8 +18,9 @@ class ViewController: UIViewController {
 
         introduceYourself()
     }
-    
-//MARK: Метод для ввода имени пользователя
+
+    // MARK: Метод для ввода имени пользователя
+
     func introduceYourself() {
         let name = UIAlertController(title: "Представьтесь", message: "Введите ваше имя", preferredStyle: .alert)
         name.addTextField { textField in
@@ -32,7 +33,9 @@ class ViewController: UIViewController {
         }))
         present(name, animated: true, completion: nil)
     }
-//MARK: метод для отображения ввода имени
+
+    // MARK: - Method to Display Greeting
+
     func showGreeting(_ name: String) {
         let greetingLabel = UILabel(frame: CGRect(x: 0, y: 37, width: 375, height: 90))
         greetingLabel.text = "Приветсвую,\n \(name)!"
@@ -44,7 +47,9 @@ class ViewController: UIViewController {
         greetingLabel.numberOfLines = 0
         view.addSubview(greetingLabel)
     }
-//настройки макета
+
+    // MARK: - Layout Setup
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -80,7 +85,9 @@ class ViewController: UIViewController {
 
         buttonCalculator.addTarget(self, action: #selector(addNumbers), for: .touchUpInside)
     }
-//MARK: метод для вариантов угадывания числа от 1 до 10
+
+    // MARK: - Method for Guessing Numbers from 1 to 10
+
     @objc func addGuess() {
         let randomNumber = Int.random(in: 1 ... 10)
         let guessAlert = UIAlertController(title: "Угадай число от 1 до 10", message: nil, preferredStyle: .alert)
@@ -95,7 +102,8 @@ class ViewController: UIViewController {
         }))
         present(guessAlert, animated: true, completion: nil)
     }
-//проверка угадывания
+    // MARK: - Guess Checking
+    // проверка угадывания
     func checkGuess(_ textField: UITextField?, randomNumber: Int) { guard let guessText = textField?.text,
                                                                           let guess = Int(guessText)
         else {
@@ -107,19 +115,23 @@ class ViewController: UIViewController {
             showFailureAlert()
         }
     }
-//успешно
+
+    // успешно
     func showSuccessAlert() {
         let successAlert = UIAlertController(title: "Поздравляю", message: "Вы угадали", preferredStyle: .alert)
         successAlert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
         present(successAlert, animated: true, completion: nil)
     }
-//не усмешно
+
+    // не усмешно
     func showFailureAlert() {
         let failureAlert = UIAlertController(title: "Упс!", message: "Вы не угадали", preferredStyle: .alert)
         failureAlert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))
         present(failureAlert, animated: true, completion: nil)
     }
-//MARK: метод для сложения чисел (калькулятор)
+
+    // MARK: - Method for Adding Numbers (Calculator)
+
     @objc func addNumbers() {
         let calculator = UIAlertController(title: "Введите ваши числа", message: nil, preferredStyle: .alert)
 
@@ -141,7 +153,8 @@ class ViewController: UIViewController {
 
         present(calculator, animated: true, completion: nil)
     }
-//результат калькулятора
+
+    // результат калькулятора
     func resultSum(_ result: Int) {
         let resultAlert = UIAlertController(
             title: "Ваш результат",

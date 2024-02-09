@@ -11,6 +11,8 @@ class LoginViewController: UIViewController {
 
     @IBOutlet var sendButton: UIButton!
 
+    var isPasswordHidden = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -18,6 +20,9 @@ class LoginViewController: UIViewController {
         passwordTextField.delegate = self
         loginTextField.delegate = self
         sendButton.isEnabled = false
+
+        //isSecureTextEntry для скрывания пароля
+        passwordTextField.isSecureTextEntry = true
     }
 }
 

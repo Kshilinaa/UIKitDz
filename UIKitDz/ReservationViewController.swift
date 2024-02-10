@@ -5,6 +5,7 @@ import UIKit
 
 /// class ReservationViewController реализация класс для нового вью
 class ReservationViewController: UIViewController {
+    //MARK: IBAction
     @IBAction func takeCheckButton(_ sender: Any) {
         let billAlert = UIAlertController(title: "Выставить счет", message: nil, preferredStyle: .alert)
         let cancelAlert = UIAlertAction(title: "Отмена", style: .default)

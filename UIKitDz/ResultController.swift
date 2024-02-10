@@ -3,5 +3,5 @@
 
 import UIKit
 
-/// Uki
+/// Uikit 
 class ResultController: UIViewController {}

@@ -5,6 +5,8 @@ import UIKit
 
 /// LoginViewController авторизация
 class LoginViewController: UIViewController {
+    
+//MARK: - IBOutlet
     @IBOutlet var loginTextField: UITextField!
 
     @IBOutlet var passwordTextField: UITextField!
@@ -21,7 +23,7 @@ class LoginViewController: UIViewController {
         loginTextField.delegate = self
         sendButton.isEnabled = false
 
-        //isSecureTextEntry для скрывания пароля
+        // isSecureTextEntry для скрывания пароля
         passwordTextField.isSecureTextEntry = true
     }
 }

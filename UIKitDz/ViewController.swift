@@ -4,7 +4,7 @@
 import UIKit
 
 /// Class Controller
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,19 +19,19 @@ class ViewController: UIViewController {
         introduceYourself()
     }
 
-    // MARK: Метод для ввода имени пользователя
+    // MARK: Method for entering the user name
 
     func introduceYourself() {
-        let name = UIAlertController(title: "Представьтесь", message: "Введите ваше имя", preferredStyle: .alert)
-        name.addTextField { textField in
+        let nameAlert = UIAlertController(title: "Представьтесь", message: "Введите ваше имя", preferredStyle: .alert)
+        nameAlert.addTextField { textField in
             textField.placeholder = "Имя"
         }
-        name.addAction(UIAlertAction(title: "Готово", style: .default, handler: { _ in
-            if let textField = name.textFields?.first, let newName = textField.text {
+        nameAlert.addAction(UIAlertAction(title: "Готово", style: .default, handler: { _ in
+            if let textField = nameAlert.textFields?.first, let newName = textField.text {
                 self.showGreeting(newName)
             }
         }))
-        present(name, animated: true, completion: nil)
+        present(nameAlert, animated: true, completion: nil)
     }
 
     // MARK: - Method to Display Greeting
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
     }
 
     // MARK: - Layout Setup
-    
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
@@ -102,10 +102,13 @@ class ViewController: UIViewController {
         }))
         present(guessAlert, animated: true, completion: nil)
     }
+
     // MARK: - Guess Checking
+
     // проверка угадывания
-    func checkGuess(_ textField: UITextField?, randomNumber: Int) { guard let guessText = textField?.text,
-                                                                          let guess = Int(guessText)
+    func checkGuess(_ textField: UITextField?, randomNumber: Int) {
+        guard let guessText = textField?.text, let guess = Int(guessText)
+       
         else {
             return
         }
@@ -123,7 +126,7 @@ class ViewController: UIViewController {
         present(successAlert, animated: true, completion: nil)
     }
 
-    // не усмешно
+    // не успешно
     func showFailureAlert() {
         let failureAlert = UIAlertController(title: "Упс!", message: "Вы не угадали", preferredStyle: .alert)
         failureAlert.addAction(UIAlertAction(title: "Ок", style: .default, handler: nil))

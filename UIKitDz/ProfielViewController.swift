@@ -4,7 +4,7 @@
 import UIKit
 
 /// ProfielViewController
-class ProfielViewController: UIViewController {
+final class ProfielViewController: UIViewController {
     // MARK: - View Controller Lifecycle
 
     override func viewDidLoad() {
@@ -43,7 +43,7 @@ class ProfielViewController: UIViewController {
         ageTextField.inputAccessoryView = toolBar
         genderTextField.inputAccessoryView = toolBar
     }
-
+//MARK: - Private Propperty
     private let agePickerData = [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
         11, 12, 13, 14, 15, 16, 17, 18, 19, 20,

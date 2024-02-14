@@ -6,13 +6,15 @@ import UIKit
 // MARK: - RegisterViewController
 
 // Первый экран авторизации
-class RegisterViewController: UIViewController {
+final class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setElements()
         setupTextFieldsObservation()
     }
+
     // MARK: - UI Elements
+
     private let calendar: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "calendarImage")
@@ -124,7 +126,9 @@ class RegisterViewController: UIViewController {
         button.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
         return button
     }()
-// MARK: - Private Methods
+
+    // MARK: - Private Methods
+
     private func setElements() {
         view.addSubview(calendar)
         view.addSubview(reminderDr)
@@ -140,13 +144,17 @@ class RegisterViewController: UIViewController {
         view.addSubview(faceID)
         view.addSubview(loginButton)
     }
-// MARK: - Text Field Observations
+
+    // MARK: - Text Field Observations
+
     // отслеживания изменений в текстовых полях
     @objc private func setupTextFieldsObservation() {
         emailText.addTarget(self, action: #selector(changedTextFields), for: .editingChanged)
         textInPassword.addTarget(self, action: #selector(changedTextFields), for: .editingChanged)
     }
-// MARK: - Text Field Change Handling
+
+    // MARK: - Text Field Change Handling
+
     // проверка заполненности полей для активации кнопки входа
     @objc private func changedTextFields(_ textField: UITextField) {
         guard let email = emailText.text,
@@ -162,7 +170,9 @@ class RegisterViewController: UIViewController {
         faceID.isHidden = false
         loginButton.backgroundColor = UIColor(named: "newRed")
     }
-// MARK: - Login Button Action
+
+    // MARK: - Login Button Action
+
     // обработчик нажатия на кнопку входа
     @objc private func loginButtonTapped() {
         let birthdaysList = BirthdaysList()

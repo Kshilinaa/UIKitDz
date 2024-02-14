@@ -4,7 +4,7 @@
 import UIKit
 
 /// Класс с днями рождениями
-class BirthdaysList: UIViewController {
+final class BirthdaysList: UIViewController {
     // MARK: - View Controller Lifecycle
 
     override func viewDidLoad() {

@@ -46,7 +46,6 @@ final class DetailViewController: UIViewController {
     // MARK: - private propites
 //настройка пользовательного интерфейса
     private func makeUI() {
-    
         playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
         nameTrackLabel.text = song
         configureVolumeSlider()
@@ -54,7 +53,6 @@ final class DetailViewController: UIViewController {
     }
 //настройка слайдера продолжительности
     private func setupSlider() {
-        
         durationSlider.minimumValue = 0.0
         durationSlider.maximumValue = 100.0
         durationSlider.maximumValue = Float(player.duration)

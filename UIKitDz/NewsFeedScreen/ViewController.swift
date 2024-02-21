@@ -122,12 +122,11 @@ extension ViewController: UITableViewDataSource {
                 withIdentifier: OtherPostsCell.identifier,
                 for: indexPath
             ) as? OtherPostsCell else { return UITableViewCell() }
-            cell.setUp(post: rmLinkStorage.posts[indexPath.row])
+            cell.setUp(posts: rmLinkStorage.posts[indexPath.row])
             return cell
         }
     }
 }
-
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -140,7 +139,7 @@ extension ViewController: UITableViewDelegate {
         case .recommendationns:
             return 280
         case .otherPosts:
-            return 430
+            return 440
         }
     }
 }

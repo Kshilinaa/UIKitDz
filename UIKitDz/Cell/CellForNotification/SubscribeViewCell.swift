@@ -52,11 +52,9 @@ final class SubscribeViewCell: UITableViewCell {
     private func setupUI() {
         contentView.heightAnchor.constraint(equalToConstant: 65).isActive = true
         contentView.backgroundColor = .white
-
         contentView.addSubview(userImageView)
         contentView.addSubview(commentLabel)
         contentView.addSubview(buttonPost)
-
         makeUserImage()
         makeCommentLabel()
         makeButton()

@@ -124,8 +124,6 @@ final class FirstPostCell: UITableViewCell {
     /// Устанавливает данные для ячейки с постом
     func setUp(posts: Post) {
         avatarImageView.image = UIImage(named: posts.avatarName)
-        // postImageView.image = UIImage(named: posts.postImages[])
-
         nameTitle.text = posts.nameTitle
         likesCount.text = posts.likesCount
         postDescription.text = posts.postDescription
@@ -138,7 +136,6 @@ final class FirstPostCell: UITableViewCell {
         contentView.addSubview(scrollView)
         contentView.addSubview(pageControll)
         contentView.addSubview(pointsImageView)
-        // contentView.addSubview(postImageView)
         contentView.addSubview(chatButton)
         contentView.addSubview(heartButton)
         contentView.addSubview(sendButton)
@@ -150,12 +147,10 @@ final class FirstPostCell: UITableViewCell {
         contentView.addSubview(nameTitle)
         contentView.addSubview(likesCount)
         contentView.heightAnchor.constraint(equalToConstant: 440).isActive = true
-
         makePostWithPageControll()
         makePageControllConstraints()
         makeScrollViewConstraints()
         makeAvatarImageViewConstraints()
-        // makePostImageViewConstraints()
         makePointsImageViewConstraints()
         makeHeartImageViewConstraints()
         makeChatImageViewConstraints()
@@ -170,7 +165,7 @@ final class FirstPostCell: UITableViewCell {
     }
 
     // MARK: - Private method
-
+    /// Создание поста со сменой фотографий
     private func makePostWithPageControll() {
         addImagePost(image: UIImage(named: picturesInPost[0]) ?? UIImage(), imageView: postImageView)
         postImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
@@ -178,7 +173,7 @@ final class FirstPostCell: UITableViewCell {
         postSecondImageView.leadingAnchor.constraint(equalTo: postImageView.trailingAnchor).isActive = true
         postSecondImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
     }
-
+    /// Добавление изображения в пост
     private func addImagePost(image: UIImage, imageView: UIImageView) {
         imageView.image = image
         scrollView.addSubview(imageView)
@@ -188,7 +183,7 @@ final class FirstPostCell: UITableViewCell {
         imageView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
     }
-
+    /// Ограничений для UIScrollView
     private func makeScrollViewConstraints() {
         scrollView.delegate = self
         scrollView.contentSize = CGSize(width: 375, height: 239)
@@ -198,7 +193,7 @@ final class FirstPostCell: UITableViewCell {
         scrollView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10).isActive = true
         scrollView.heightAnchor.constraint(equalToConstant: 239).isActive = true
     }
-
+    /// Установка ограничений для UIPageControl
     private func makePageControllConstraints() {
         pageControll.numberOfPages = picturesInPost.count
         pageControll.translatesAutoresizingMaskIntoConstraints = false
@@ -338,9 +333,11 @@ final class FirstPostCell: UITableViewCell {
         tenMiAgo.textColor = .lightGray
     }
 }
-
+// Расширение для управления прокруткой в ячейке первого поста
 extension FirstPostCell: UIScrollViewDelegate {
+    /// Метод делегата UIScrollView, вызываемый при прокрутке
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        ///Обновление текущей страницы в pageControll в зависимости от смещения scrollView
         pageControll.currentPage = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
     }
 }

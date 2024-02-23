@@ -208,7 +208,7 @@ extension NotificationsViewController: UITableViewDataSource {
             return thisWeeknotifications.count
         }
     }
-
+    
     /// Возвращает ячейку для отображения на указанной позиции
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch content[indexPath.section] {
@@ -222,7 +222,6 @@ extension NotificationsViewController: UITableViewDataSource {
                 ) as? NotificationCell else { return UITableViewCell() }
                 cell.configure(info: notification)
                 return cell
-
             case false:
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: SubscribeViewCell.identifier,
@@ -231,7 +230,6 @@ extension NotificationsViewController: UITableViewDataSource {
                 cell.configure(info: notification)
                 return cell
             }
-
         case .thisWeek:
             let notification = thisWeeknotifications[indexPath.row]
             switch notification.isButtonVisible {
@@ -242,7 +240,6 @@ extension NotificationsViewController: UITableViewDataSource {
                 ) as? NotificationCell else { return UITableViewCell() }
                 cell.configure(info: notification)
                 return cell
-
             case false:
                 guard let cell = tableView.dequeueReusableCell(
                     withIdentifier: SubscribeViewCell.identifier,
@@ -281,7 +278,6 @@ extension NotificationsViewController: UITableViewDelegate {
     /// Возвращает представление для заголовка в указанной секции
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 50))
-
         let label = UILabel(frame: CGRect(x: 15, y: 10, width: tableView.frame.size.width - 30, height: 30))
         if section == 0 {
             label.text = Constants.todayHeader
@@ -291,9 +287,7 @@ extension NotificationsViewController: UITableViewDelegate {
 
         label.textColor = UIColor.black
         label.font = UIFont.boldSystemFont(ofSize: 14)
-
         headerView.addSubview(label)
-
         return headerView
     }
 

@@ -84,7 +84,6 @@ extension AllPostsCell: UICollectionViewDataSource, UICollectionViewDelegate {
         imageView.topAnchor.constraint(equalTo: cell.contentView.topAnchor).isActive = true
         imageView.trailingAnchor.constraint(equalTo: cell.contentView.trailingAnchor).isActive = true
         imageView.bottomAnchor.constraint(equalTo: cell.contentView.bottomAnchor).isActive = true
-
         return cell
     }
 }

@@ -119,7 +119,6 @@ final class StoriesCell: UITableViewCell {
         scrollView.addSubview(lavandaLabelFour)
         scrollView.addSubview(lavandaLabelFive)
         scrollView.addSubview(lavandaLabelSix)
-
         makeScrollViewConstraints()
         makeImageViewConstraints()
         makeMyStoriesImageViewConstraints()

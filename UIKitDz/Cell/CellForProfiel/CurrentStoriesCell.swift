@@ -131,16 +131,6 @@ final class CurrentStoriesCell: UITableViewCell {
         seventhCurrent.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -7).isActive = true
     }
 
-    /* private func setupRocketButton() {
-         rocketButton.translatesAutoresizingMaskIntoConstraints = false
-         rocketButton.addTarget(self, action: #selector(rocketButtonTapped), for: .touchUpInside)
-         scrollView.addSubview(rocketButton)
-         rocketButton.topAnchor.constraint(equalTo: image1.topAnchor, constant: 10).isActive = true
-         rocketButton.leadingAnchor.constraint(equalTo: image1.leadingAnchor, constant: 10).isActive = true
-         rocketButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-         rocketButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
-     } */
-
     // MARK: - public methods
 
     /// Настройка ячейки с текущими историями

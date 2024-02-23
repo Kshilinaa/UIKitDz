@@ -115,7 +115,6 @@ final class OtherPostsCell: UITableViewCell {
         contentView.addSubview(tenMiAgo)
         contentView.addSubview(nameTitle)
         contentView.addSubview(likesCount)
-
         makeAvatarImageViewConstraints()
         makePostImageViewConstraints()
         makePointsImageViewConstraints()

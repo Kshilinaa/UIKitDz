@@ -297,7 +297,6 @@ final class ProfielCell: UITableViewCell {
         buttonWeb.heightAnchor.constraint(equalToConstant: 30).isActive = true
         buttonWeb.addTarget(self, action: #selector(openLink), for: .touchUpInside)
 
-        // buttonWeb.addTarget(self, action: #selector(webButtonTapped), for: .touchUpInside)
     }
 
     // MARK: - Actions

@@ -172,7 +172,6 @@ final class RecommendationsCell: UITableViewCell {
         accountViewMary.addSubview(subscribeMaryButton)
         accountViewMary.addSubview(maryNameLabel)
         accountCrimeaImageView.addSubview(crimeaNameLabel)
-
         makeScrollViewConstraints()
         makeAllButtonConstraints()
         makeRecomendLabelConstraints()

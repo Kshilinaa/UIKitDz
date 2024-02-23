@@ -3,24 +3,33 @@
 
 import Foundation
 
-/// модель поста
+/// Структура описывающая пост
 struct Post {
+    /// Картинка профиля
     let avatarName: String
+    /// Имя профиля
     let nameTitle: String
+    /// Картинка поста
     let postImages: [String]
+    /// количество лайков
     let likesCount: String
+    /// Подпись под постом
     let postDescription: String
+    /// Комментарий
     let commenting: String
+    /// Время когда был выложен пост
     let tenMiAgo: String
 }
 
-/// Description
+/// Структура, хранящая информацию о рекомендуемых аккаунтах
 struct RecomendedAccaounts {
+    /// Массив имён аватаров
     let avatarImageName: [String]
+    /// Массив имён аккаунтов
     let nameAccount: [String]
 }
 
-/// Descriptio
+/// Перечисления  для ресурсов и текста
 enum RMConstant {
     static let myStoryImage = "myStoryImage"
     static let lavandaImage = "lavandaImage"
@@ -44,10 +53,12 @@ enum RMConstant {
     static let rectangleImage = "rectangleImage"
 }
 
-/// Description
+/// Структура для хранения ссылок
 struct RMLinkStorage {
-    var stories = [RMConstant.myStoryImage, RMConstant.lavandaImage]
-    var posts: [Post] = [.init(
+    /// Для  историй
+    let stories = [RMConstant.myStoryImage, RMConstant.lavandaImage]
+    /// Для постов
+    let posts: [Post] = [.init(
         avatarName: RMConstant.tupPeopleImage,
         nameTitle: RMConstant.turText,
         postImages: [RMConstant.turVDagestanImage, RMConstant.turVDagestan1Image, RMConstant.turVDagestanImage],
@@ -56,7 +67,8 @@ struct RMLinkStorage {
         commenting: RMConstant.comment,
         tenMiAgo: RMConstant.tenMin
     )]
-    var recomended: [RecomendedAccaounts] = [.init(
+    /// Для рекомендованных аккаунтов
+    let recomended: [RecomendedAccaounts] = [.init(
         avatarImageName: [RMConstant.crimeImage, RMConstant.maryImage],
         nameAccount: [RMConstant.crimeaName, RMConstant.maryName]
     )]

@@ -3,24 +3,32 @@
 
 import UIKit
 
-/// Class Controller
+/// Экран Лента
 final class ViewController: UIViewController {
+    /// Типы серий ячеек
     enum CountSeries {
+        /// Для историй
         case stories
+        /// Для первого посто
         case firstPost
+        /// Для рекомендаций
         case recommendationns
+        /// Для остальных постов
         case otherPosts
     }
 
     let rmLinkStorage = RMLinkStorage()
     let tableView = UITableView()
     let refreshControl = UIRefreshControl()
+    /// Список рядов ячеек
     let series: [CountSeries] = [
         .stories,
         .firstPost,
         .recommendationns,
         .otherPosts
     ]
+
+    // MARK: - Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,31 +37,34 @@ final class ViewController: UIViewController {
         setupRefreshControll()
     }
 
+    // MARK: - Setup Methods
+
+    /// Настройка таблицы.
     func setupTableView() {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.backgroundColor = .white
-
         view.addSubview(tableView)
-
         tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-
         tableView.register(StoriesCell.self, forCellReuseIdentifier: StoriesCell.identifier)
         tableView.register(FirstPostCell.self, forCellReuseIdentifier: FirstPostCell.identifier)
         tableView.register(RecommendationsCell.self, forCellReuseIdentifier: RecommendationsCell.identifier)
         tableView.register(OtherPostsCell.self, forCellReuseIdentifier: OtherPostsCell.identifier)
-
         tableView.dataSource = self
         tableView.delegate = self
     }
 
+    /// Настройка рефреша
     func setupRefreshControll() {
         refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
         tableView.refreshControl = refreshControl
     }
 
+    // MARK: - Action Methods
+
+    /// Метод обновления
     @objc func refreshData() {
         refreshControl.endRefreshing()
         tableView.reloadData()
@@ -62,13 +73,14 @@ final class ViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
+/// Расширение  для упрощения реализации протокола, облегчает работу с отображением данных в таблице
 extension ViewController: UITableViewDataSource {
-    // func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    /// Определяет количество секций в таблице
     func numberOfSections(in tableView: UITableView) -> Int {
         series.count
     }
 
-    // func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    /// Определяет количество строк в указанной секции таблицы
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let cellsType = series[section]
         switch cellsType {
@@ -79,6 +91,7 @@ extension ViewController: UITableViewDataSource {
         }
     }
 
+    /// Определяет ячейку для отображения в указанной позиции таблицы
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cells = series[indexPath.section]
         switch cells {
@@ -128,7 +141,10 @@ extension ViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - Extension UITableViewDelegate
+
 extension ViewController: UITableViewDelegate {
+    /// Определяет высоту ячейки для указанной позиции в таблице
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellType = series[indexPath.section]
         switch cellType {
@@ -139,7 +155,7 @@ extension ViewController: UITableViewDelegate {
         case .recommendationns:
             return 280
         case .otherPosts:
-            return 440
+            return 600
         }
     }
 }

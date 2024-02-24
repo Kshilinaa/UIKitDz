@@ -296,11 +296,11 @@ final class ProfielCell: UITableViewCell {
         buttonWeb.widthAnchor.constraint(equalToConstant: 150).isActive = true
         buttonWeb.heightAnchor.constraint(equalToConstant: 30).isActive = true
         buttonWeb.addTarget(self, action: #selector(openLink), for: .touchUpInside)
-
     }
 
     // MARK: - Actions
-///Отрктые вэб-сайта
+
+    /// Отрктые вэб-сайта
     @objc private func openLink() {
         linkButtonHandler?()
     }

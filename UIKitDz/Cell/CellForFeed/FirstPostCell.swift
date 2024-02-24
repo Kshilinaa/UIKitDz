@@ -119,10 +119,10 @@ final class FirstPostCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // MARK: - Setup
+    // MARK: - Public method
 
     /// Устанавливает данные для ячейки с постом
-    func setUp(posts: Post) {
+     func setUp(posts: Post) {
         avatarImageView.image = UIImage(named: posts.avatarName)
         nameTitle.text = posts.nameTitle
         likesCount.text = posts.likesCount

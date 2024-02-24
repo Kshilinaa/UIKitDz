@@ -6,6 +6,7 @@ import UIKit
 /// Класс для создания и настройки ячейки для сторис
 final class StoriesCell: UITableViewCell {
     // MARK: - Properties
+
     /// Перечисление для подписи имя аккаунта под историей
     enum StoryTextConstants {
         static let myStory = "Ваша история"
@@ -87,7 +88,7 @@ final class StoriesCell: UITableViewCell {
         return label
     }()
 
-    // MARK: - Life cycle UITableViewCell
+    // MARK: - Initializers
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -242,6 +243,7 @@ final class StoriesCell: UITableViewCell {
         lavandaLabelTwo.leadingAnchor.constraint(equalTo: lavandaLabel.trailingAnchor, constant: 5).isActive = true
         lavandaLabelTwo.topAnchor.constraint(equalTo: secondStoriesImage.bottomAnchor, constant: 5).isActive = true
     }
+
     /// Ограничения для имени аккаунта 3-ой истории
     private func makeLavandaLabelThreeConstraints() {
         lavandaLabelThree.translatesAutoresizingMaskIntoConstraints = false
@@ -250,6 +252,7 @@ final class StoriesCell: UITableViewCell {
         lavandaLabelThree.leadingAnchor.constraint(equalTo: lavandaLabelTwo.trailingAnchor, constant: 5).isActive = true
         lavandaLabelThree.topAnchor.constraint(equalTo: thirdStoriesImage.bottomAnchor, constant: 5).isActive = true
     }
+
     /// Ограничения для имени аккаунта 4-ой истории
     private func makeLavandaLabelFourConstraints() {
         lavandaLabelFour.translatesAutoresizingMaskIntoConstraints = false
@@ -259,6 +262,7 @@ final class StoriesCell: UITableViewCell {
             .isActive = true
         lavandaLabelFour.topAnchor.constraint(equalTo: fourthStoriesImage.bottomAnchor, constant: 5).isActive = true
     }
+
     /// Ограничения для имени аккаунта 5-ой истории
     private func makeLavandaLabelFiveConstraints() {
         lavandaLabelFive.translatesAutoresizingMaskIntoConstraints = false
@@ -267,6 +271,7 @@ final class StoriesCell: UITableViewCell {
         lavandaLabelFive.leadingAnchor.constraint(equalTo: lavandaLabelFour.trailingAnchor, constant: 5).isActive = true
         lavandaLabelFive.topAnchor.constraint(equalTo: fifthStoriesImage.bottomAnchor, constant: 5).isActive = true
     }
+
     /// Ограничения для имени аккаунта 6-ой истории
     private func makeLavandaLabelSixConstraints() {
         lavandaLabelSix.translatesAutoresizingMaskIntoConstraints = false

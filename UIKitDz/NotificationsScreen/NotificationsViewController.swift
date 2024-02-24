@@ -208,7 +208,7 @@ extension NotificationsViewController: UITableViewDataSource {
             return thisWeeknotifications.count
         }
     }
-    
+
     /// Возвращает ячейку для отображения на указанной позиции
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch content[indexPath.section] {
